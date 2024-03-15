@@ -1,0 +1,20 @@
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+
+'CUSTOMER MASTER PRESAVE
+f.Intrinsic.Control.If(v.Caller.Hook,=,14384)
+	f.Intrinsic.Control.If(v.Passed.000042.Trim,=,"")
+		f.Intrinsic.UI.Msgbox("El Cliente no contiene la informacion del vendedor, Favor de llenar la informacion del Vendedor y volver a guardar")
+		v.Passed.777777.Set("1")
+	f.Intrinsic.Control.EndIf
+
+'PROSPECT MAINTENANCE PRESAVE
+f.Intrinsic.Control.ElseIf(v.Caller.Hook,=,29850)
+	f.Intrinsic.Control.If(v.Passed.000042.Trim,=,"")
+		f.Intrinsic.UI.Msgbox("El Prospecto no contiene la informacion del vendedor, Favor de llenar la informacion del Vendedor y volver a guardar")		
+	f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.EndIf
+Program.Sub.Main.End
